@@ -37,7 +37,7 @@ podTemplate(yaml: '''
 ''') {
   node(POD_LABEL) {
     stage('Run pipeline against a gradle project') {
-        git branch: 'master', url: 'https://github.com/Karthik-DevOps-05/Week8Lab2.git'
+        git branch: 'master', url: 'https://github.com/kavinasi/Week8.git'
         container('gradle') {
             try {
                 stage('Build a gradle project!') {
@@ -71,7 +71,7 @@ podTemplate(yaml: '''
             ls /mnt/*jar
             mv /mnt/calculator-0.0.1-SNAPSHOT.jar .
             '''
-            sh "/kaniko/executor --context `pwd` --destination karthikkrish84/calculator2${image_version}"
+            sh "/kaniko/executor --context `pwd` --destination kavinasi/calculator${image_version}"
           }
         }
       }
